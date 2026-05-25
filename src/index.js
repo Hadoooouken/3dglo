@@ -1,8 +1,13 @@
 import './css/bootstrap.min.css';
 import './css/style.min.css'; // добавьте импорт главного файла стилей
+import { menu } from './modules/menu';
+import { modal } from './modules/modal';
+import { smothScroll } from './modules/smothScroll';
 import { timer } from './modules/timer';
-import { two } from './modules/two';
 
-timer('23 may 2026');
-two();
-console.log('webpack');
+
+
+timer('26 may 2026');
+menu();
+modal();
+smothScroll()
