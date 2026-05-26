@@ -27,5 +27,6 @@ export const validation = () => {
         evt.target.value = evt.target.value.replace(/\D/g, '');
       });
     }
-  });
+  }); 
+  
 };
