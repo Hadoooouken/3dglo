@@ -17,6 +17,14 @@ export const modal = () => {
     }
   };
 
+  const closePopup = () => {
+    cancelAnimationFrame(animationId);
+
+    popup.style.display = 'none';
+
+    popupContent.style.transform = 'translateX(-50px)';
+  };
+
   popupBtn.forEach((btn) => {
     btn.addEventListener('click', () => {
       if (window.innerWidth > 700) {
@@ -27,11 +35,9 @@ export const modal = () => {
     });
   });
 
-  popupCloseBtn.addEventListener('click', () => {
-    cancelAnimationFrame(animationId);
-
-    popup.style.display = 'none';
-
-    popupContent.style.transform = 'translateX(-50px)';
+  popup.addEventListener('click', (evt) => {
+    if (evt.target.closest('.popup-close') || evt.target === popup) {
+      closePopup();
+    }
   });
 };

@@ -5,9 +5,11 @@ import { menu } from './modules/menu';
 import { modal } from './modules/modal';
 import { smothScroll } from './modules/smothScroll';
 import { timer } from './modules/timer';
+import { tabs } from './modules/tabs';
 
 timer('26 may 2026');
 menu();
 modal();
 smothScroll();
-validation()
+validation();
+tabs();

@@ -1,21 +1,27 @@
 export const menu = () => {
   const menuBtn = document.querySelector('.menu');
   const menu = document.querySelector('menu');
-  const closeBtn = menu.querySelector('.close-btn');
-  const menuItems = menu.querySelectorAll('ul>li>a');
 
-
-  const handleMenu = () => {
-    menu.classList.toggle('active-menu');
+  const openMenu = () => {
+    menu.classList.add('active-menu');
+  };
+  const closeMenu = () => {
+    menu.classList.remove('active-menu');
   };
 
-  menuBtn.addEventListener('click', handleMenu);
+  const handleMenu = (evt) => {
+    if (evt.target.classList.contains('close-btn')) {
+      closeMenu();
+    }
+    if (evt.target.closest('a')) {
+      closeMenu();
+    }
+    if (evt.target === menu) {
+        closeMenu();
+    }
+  };
 
-  closeBtn.addEventListener('click', handleMenu);
+  menuBtn.addEventListener('click', openMenu);
 
-  menuItems.forEach((item) => {
-    item.addEventListener('click', (e) => {
-      handleMenu();
-    });
-  });
+  menu.addEventListener('click', handleMenu);
 };
