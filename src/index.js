@@ -6,10 +6,25 @@ import { modal } from './modules/modal';
 import { smothScroll } from './modules/smothScroll';
 import { timer } from './modules/timer';
 import { tabs } from './modules/tabs';
+import { slider } from './modules/slider';
 
-timer('26 may 2026');
+timer('31 may 2026');
 menu();
 modal();
 smothScroll();
 validation();
 tabs();
+
+slider({
+  slider: '.portfolio-content',
+  slide: '.portfolio-item',
+  dotsList: '.portfolio-dots',
+
+  activeSlide: 'portfolio-item-active',
+  activeDot: 'dot-active',
+
+  dotClass: 'dot',
+  btn: 'portfolio-btn',
+  nextBtn: 'next',
+  prevBtn: 'prev',
+});
