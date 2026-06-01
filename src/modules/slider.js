@@ -10,7 +10,7 @@ const {
   nextBtn,
   prevBtn
 } = config;
-  console.log(prevBtn);
+
   const sliderBlock = document.querySelector(slider);
   if (!sliderBlock) return;
 
@@ -26,7 +26,6 @@ const {
   slides.forEach((slide) => {
     const dot = document.createElement('li');
     dot.classList.add(dotClass);
-    console.log(dot);
     dotsContainer.append(dot);
   });
 
@@ -112,6 +111,6 @@ const {
     },
     true,
   );
-
+    
   startSlide(2000);
 };
