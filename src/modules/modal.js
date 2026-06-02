@@ -1,37 +1,28 @@
+import { animate } from './helpers';
+
 export const modal = () => {
   const popup = document.querySelector('.popup');
   const popupContent = document.querySelector('.popup-content');
   const popupBtn = document.querySelectorAll('.popup-btn');
   const popupCloseBtn = popup.querySelector('.popup-close');
 
-  let position;
-  let animationId;
-
-  const animation = () => {
-    position += 10;
-
-    popupContent.style.transform = `translateX(${position}px)`;
-
-    if (position < -50) {
-      animationId = requestAnimationFrame(animation);
-    }
-  };
-
   const closePopup = () => {
-    cancelAnimationFrame(animationId);
-
     popup.style.display = 'none';
-
-    popupContent.style.transform = 'translateX(-50px)';
   };
 
   popupBtn.forEach((btn) => {
     btn.addEventListener('click', () => {
-      if (window.innerWidth > 700) {
-        position = -500;
-        animation();
-      }
       popup.style.display = 'block';
+      animate({
+        duration: 400,
+        timing(timeFraction) {
+          return Math.pow(timeFraction, 2) * ((20 + 1) * timeFraction - 20);
+        },
+        draw(progress) {
+          const x = -100 + 100 * progress;
+          popupContent.style.transform = `translateX(${x}px)`;
+        },
+      });
     });
   });
 
