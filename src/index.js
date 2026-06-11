@@ -8,8 +8,9 @@ import { timer } from './modules/timer';
 import { tabs } from './modules/tabs';
 import { slider } from './modules/slider';
 import { calculator } from './modules/calculator';
+import { sendForm } from './modules/sendForm';
 
-timer('31 may 2026');
+timer('20 june 2026');
 menu();
 modal();
 smothScroll();
@@ -30,7 +31,32 @@ slider({
   prevBtn: 'prev',
 });
 
-calculator(100)
+calculator(100);
 
-
-
+sendForm({
+  formId: 'form1',
+  someElem: [
+    {
+      type: 'block',
+      id: 'total',
+    },
+  ],
+});
+sendForm({
+  formId: 'form2',
+  someElem: [
+    {
+      type: 'input',
+      id: 'total',
+    },
+  ],
+});
+sendForm({
+  formId: 'form3',
+  someElem: [
+    {
+      type: 'input',
+      id: 'total',
+    },
+  ],
+});

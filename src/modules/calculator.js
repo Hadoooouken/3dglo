@@ -22,7 +22,7 @@ export const calculator = (price = 100) => {
       }
 
       elem.textContent = n;
-    }, 20);
+    }, 10);
   };
 
   const countCalc = () => {
